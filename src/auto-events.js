@@ -155,7 +155,7 @@
       /^https?:\/\//i.test(link.href) &&
       new RegExp(
         "\\.(" + (optionsLink.downloadsExtensions || []).join("|") + ")$",
-        "i"
+        "i",
       ).test(link.pathname)
     ) {
       collect = "download";
@@ -186,8 +186,8 @@
 
       link.setAttribute("onclick", onClickAttribute);
     } else {
-      link.addEventListener("click", function (element) {
-        saAutomatedLink(element.target, collect);
+      link.addEventListener("click", function () {
+        saAutomatedLink(link, collect);
       });
     }
   }
